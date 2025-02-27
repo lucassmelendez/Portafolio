@@ -1,28 +1,88 @@
 ---
 import GitHub from "./icons/GitHub.astro"
-import NextJS from "./icons/NextJS.astro"
-import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 import Django from "./icons/Django.astro"
+import Node from "./icons/Node.astro"
+import Css from "./icons/Css.astro"
+import Javascript from "./icons/Javascript.astro"
+import Ionic from "./icons/Ionic.astro"
+import Angular from "./icons/Angular.astro"
+import Firebase from "./icons/Firebase.astro"
+import Typescript from "./icons/Typescript.astro"
+import Git from "./icons/Git.astro"
+import Vercel from "./icons/Vercel.astro"
+import Html5 from "./icons/Html5.astro"
+import Express from "./icons/Express.astro"
 
 const TAGS = {
   DJANGO: {
     name: "Django",
-    class: "bg-black text-white",
+    class: "bg-[#113025] text-white",
     icon: Django,
   },
-  NEXTJS: {
-    name: "NextJs",
-    class: "bg-black text-white",
-    icon: NextJS,
+  NODE: {
+    name: "NodeJs",
+    class: "bg-[#11301b] text-white",
+    icon: Node,
   },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
+  CSS: {
+    name: "CSS",
+    class: "bg-[#13256e] text-white",
+    icon: Css,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#61581e] text-white",
+    icon: Javascript,
+  },
+  IONIC: {
+    name: "Ionic",
+    class: "bg-[#214075] text-white",
+    icon: Ionic,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-[#700000] text-white",
+    icon: Angular,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "bg-[#705601] text-white",
+    icon: Firebase,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#012c70] text-white",
+    icon: Typescript,
+  },
+  GITHUB: {
+    name: "Github",
+    class: "bg-[black] text-white",
+    icon: GitHub,
+  },
+  GIT: {
+    name: "Git",
+    class: "bg-[#5c1e15] text-white",
+    icon: Git,
+  },
+  VERCEL: {
+    name: "Vercel",
+    class: "bg-[black] text-white",
+    icon: Vercel,
+  },
+  HTML5: {
+    name: "HTML",
+    class: "bg-[#692512] text-white",
+    icon: Html5,
+  },
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-[black] text-white",
+    icon: Express,
   },
 }
+
 const PROJECTS = [
   {
     title: "MYHD.CL",
@@ -30,7 +90,7 @@ const PROJECTS = [
       "Pagina web de productos de DJ y musica, Creacion de diversos modulos con HTMl,CSS,JS y Creacion de un backend con Node.js y Express.js para el consumo de microservicios",
     link: "https://myhd.cl/",
     image: "/projects/myhd.webp",
-    tags: [TAGS.NEXTJS, TAGS.TAILWIND],
+    tags: [TAGS.HTML5, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.EXPRESS, TAGS.NODE,  TAGS.VERCEL, TAGS.GIT, TAGS.GITHUB],
   },
   {
     title: "RegistrApp",
@@ -39,7 +99,7 @@ const PROJECTS = [
     link: "https://registrapp-blue.vercel.app/",
     github: "https://github.com/lucassmelendez/registrAppDjango",
     image: "/projects/log2.webp",
-    tags: [TAGS.NEXTJS, TAGS.TAILWIND],
+    tags: [TAGS.ANGULAR, TAGS.IONIC, TAGS.DJANGO, TAGS.TYPESCRIPT, TAGS.FIREBASE, TAGS.GIT, TAGS.GITHUB],
   },
 ]
 ---
@@ -59,7 +119,7 @@ const PROJECTS = [
       {title}
     </h3>
     <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
+      <ul class="flex flex-wrap mb-2 gap-x-2 gap-y-2">
           {tags.map((tag) => (
             <li>
               <span
@@ -94,6 +154,3 @@ const PROJECTS = [
     ))
   }
 </div>
-
-
-
