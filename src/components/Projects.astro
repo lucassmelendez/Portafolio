@@ -14,6 +14,7 @@ import Git from "./icons/Git.astro"
 import Vercel from "./icons/Vercel.astro"
 import Html5 from "./icons/Html5.astro"
 import Express from "./icons/Express.astro"
+import Python from "./icons/Python.astro"
 
 const TAGS = {
   DJANGO: {
@@ -48,7 +49,7 @@ const TAGS = {
   },
   FIREBASE: {
     name: "Firebase",
-    class: "bg-[#705601] text-white",
+    class: "bg-[#701701] text-white",
     icon: Firebase,
   },
   TYPESCRIPT: {
@@ -81,6 +82,11 @@ const TAGS = {
     class: "bg-[black] text-white",
     icon: Express,
   },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#7a5c01] text-white",
+    icon: Python,
+  },
 }
 
 const PROJECTS = [
@@ -99,7 +105,7 @@ const PROJECTS = [
     link: "https://registrapp-blue.vercel.app/",
     github: "https://github.com/lucassmelendez/registrAppDjango",
     image: "/projects/log2.webp",
-    tags: [TAGS.ANGULAR, TAGS.IONIC, TAGS.DJANGO, TAGS.TYPESCRIPT, TAGS.FIREBASE, TAGS.GIT, TAGS.GITHUB],
+    tags: [TAGS.ANGULAR, TAGS.IONIC, TAGS.DJANGO, TAGS.FIREBASE, TAGS.TYPESCRIPT,  TAGS.PYTHON, TAGS.GIT, TAGS.GITHUB],
   },
 ]
 ---
