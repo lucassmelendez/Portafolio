@@ -14,5 +14,14 @@ export default defineConfig({
   server: {
     host: true,
     port: 4321
+  },
+  vite: {
+    preview: {
+      allowedHosts: ['lucasmelendez.nordix.cl', 'localhost', '0.0.0.0']
+    },
+    server: {
+      host: true,
+      allowedHosts: ['lucasmelendez.nordix.cl', 'localhost', '0.0.0.0']
+    }
   }
 })
