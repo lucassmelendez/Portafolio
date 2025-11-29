@@ -35,7 +35,6 @@ RUN npm install
 
 # Copiar los archivos construidos desde el builder
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/.astro ./.astro
 
 # Exponer el puerto 4321 (puerto por defecto de Astro)
 EXPOSE 4321
