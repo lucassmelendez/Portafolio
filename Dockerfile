@@ -1,4 +1,6 @@
-# Usar una imagen base de Node.js
+# ============================================
+# Stage 1: Builder - Construir la aplicación
+# ============================================
 FROM node:20-alpine AS builder
 
 # Instalar git (necesario para algunas dependencias de npm)
@@ -10,36 +12,35 @@ WORKDIR /app
 # Copiar archivos de dependencias
 COPY package.json ./
 
-# Instalar dependencias
+# Instalar dependencias (incluyendo devDependencies para el build)
 RUN npm install
 
 # Copiar el resto de los archivos
 COPY . .
 
-# Construir la aplicación
+# Construir la aplicación Astro (genera dist/)
 RUN npm run build
 
-# Imagen de producción
+# ============================================
+# Stage 2: Runtime - Servir archivos estáticos
+# ============================================
 FROM node:20-alpine
-
-# Instalar git también en la imagen de producción
-RUN apk add --no-cache git
 
 WORKDIR /app
 
-# Copiar package.json
-COPY package.json ./
+# Instalar serve globalmente para servir archivos estáticos
+# Alternativamente, podríamos usar npx serve, pero instalarlo es más eficiente
+RUN npm install -g serve@14.2.1
 
-# Instalar todas las dependencias (astro preview necesita dev dependencies también)
-RUN npm install
-
-# Copiar los archivos construidos desde el builder
+# Copiar solo los archivos construidos desde el builder
 COPY --from=builder /app/dist ./dist
 
-# Exponer el puerto 4321 (puerto por defecto de Astro)
+# Exponer el puerto 4321 (configurado en Dokploy/Traefik)
 EXPOSE 4321
 
-# Usar preview para servir la aplicación en producción
-CMD ["npx", "astro", "preview", "--host", "0.0.0.0", "--port", "4321"]
+# Servir archivos estáticos en modo producción
+# -s: modo SPA (single page app) para manejar rutas correctamente
+# -l: puerto y host (0.0.0.0 para aceptar conexiones externas)
+CMD ["serve", "-s", "dist", "-l", "tcp://0.0.0.0:4321"]
 
 
